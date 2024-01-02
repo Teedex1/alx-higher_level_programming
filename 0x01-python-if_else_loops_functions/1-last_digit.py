@@ -5,9 +5,10 @@ if number < 0:
     lastdigit = number % -10
 else:
     lastdigit = number % 10
+message = "Last digit of {:d} is {:d}".format(number, lastdigit)
 if lastdigit > 5:
-    print("Last digit of {:d} is {:d} and is greater than 5".format(number, lastdigit))
+    print(message + " and is greater than 5")
 elif lastdigit < 6 and lastdigit != 0:
-    print("Last digit of {:d} is {:d} and is less than 6 and not 0".format(number, lastdigit))
+    print(message + " and is less than 6 and not 0")
 else:
-    print("Last digit of {:d} is 0 and is 0".format(number))
+    print(message + "  and is 0")
