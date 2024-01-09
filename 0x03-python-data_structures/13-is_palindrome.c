@@ -7,7 +7,7 @@
  * @n: integer
  * Return: NULL if failed
  */
-listint_t *add_nodeint(listint_t **head, const int n)
+/**listint_t *add_nodeint(listint_t **head, const int n)
 {
 	listint_t *new;
 
@@ -20,6 +20,22 @@ listint_t *add_nodeint(listint_t **head, const int n)
 	*head = new;
 	return (new);
 }
+*/
+listint_t *reverse_listint(listint_t **head)
+{
+	listint_t *prev = NULL, *current = *head, *next;
+	
+	while (current != NULL)
+	{
+		next = current->next;
+		current->next = prev;
+		prev = current;
+		current = next;
+	}
+
+	*head = prev;
+	return *head;
+}
 /**
  * is_palindrome - identify if single linked
  * @head: pointer
@@ -29,32 +45,31 @@ int is_palindrome(listint_t **head)
 {
 	listint_t *slow = *head;
 	listint_t *fast = *head;
-	listint_t *stack = NULL;
+	listint_t *second_half;
 
 	if (*head == NULL || (*head)->next == NULL)
 		return (1);
 
 	while (fast != NULL && fast->next != NULL)
 	{
-		add_nodeint(&stack, slow->n);
-		slow = slow->next;
 		fast = fast->next->next;
+		slow = slow->next;
 	}
 
 	if (fast != NULL)
 		slow = slow->next;
+	second_half = reverse_listint(&slow);
 
-	while (slow != NULL)
+	while (second_half != NULL)
 	{
-		if (slow->n != stack->n)
-		{
-			free_listint(stack);
+		if ((*head)->n != second_half->n)
 			return (0);
-		}
-		slow = slow->next;
-		stack = stack->next;
+
+		*head = (*head)->next;
+		second_half = second_half->next;
 	}
 
-	free_listint(stack);
+	reverse_listint(&slow);
+
 	return (1);
 }
