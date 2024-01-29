@@ -41,3 +41,10 @@ class Rectangle:
             raise ValueError("height must be >= 0")
         self.__height = value
 
+if __name__ == "__main__":
+    my_rectangle_1 = Rectangle(2, 3)
+    print(my_rectangle_1.__dict__)
+
+    my_rectangle_2 = Rectangle(10, 3)
+    print(my_rectangle_2.__dict__)
+
