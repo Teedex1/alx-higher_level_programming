@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 """Defines a Rectangle class."""
 
+
 class Rectangle:
     """Represent a rectangle."""
 
@@ -51,7 +52,7 @@ class Rectangle:
         """
         if self.__width == 0 or self.__height == 0:
             return ("")
-        
+
         rect = []
         for i in range(self.__height):
             [rect.append('#') for j in range(self.__width)]
