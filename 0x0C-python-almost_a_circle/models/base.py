@@ -140,9 +140,9 @@ class Base:
                 else:
                     fieldnames = ["id", "size", "x", "y"]
                 list_dicts = csv.DictReader(csvfile, fieldnames=fieldnames)
-                list_dicts = [dict([k, int(v)] for k, v in d.items())
-                            for d in list_dicts]
-                retrun [cls.create(**d) for d in list_dicts]
+                list_dicts = [dict([(k, int(v)) for k, v in d.items()])
+                        for d in list_dicts]
+                return [cls.create(**d) for d in list_dicts]
         except IOError:
             return []
 
@@ -165,7 +165,7 @@ class Base:
             turt.up()
             turt.goto(rect.x, rect.y)
             turt.down()
-            for in range(2):
+            for i in range(2):
                 turt.forward(rect.width)
                 turt.left(90)
                 turt.forward(rect.height)
@@ -178,7 +178,7 @@ class Base:
             turt.up()
             turt.goto(sq.x, sq.y)
             turt.down()
-            for in range(2):
+            for i in range(2):
                 turt.forward(sq.width)
                 turt.left(90)
                 turt.forward(sq.height)
