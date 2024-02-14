@@ -19,7 +19,7 @@ class Rectangle(Base):
             TypeError: If either of width or height is not an int.
             ValueError: If  either of width or height <= 0.
             TypeError: If either of x or y is not an int.
-            ValueError: id either of x or y < 0.
+            ValueError: If either of x or y < 0.
         """
         self.width = width
         self.height = height
@@ -34,11 +34,11 @@ class Rectangle(Base):
 
     @width.setter
     def width(self, value):
-        if type(value) !=int;
-        raise TypeError("width must be an integer")
-    if value <= 0:
-        raise ValueError("width must be > 0")
-    self.__width = value
+        if type(value) !=int:
+            raise TypeError("width must be an integer")
+        if value <= 0:
+            raise ValueError("width must be > 0")
+        self.__width = value
 
     @property
     def height(self):
@@ -140,19 +140,19 @@ class Rectangle(Base):
                 elif k == "y":
                     self.y = v
 
-        def to_dictionary(self):
-            """Return the dictionary representation of a Rectangle."""
-            return {
-                "id": self.id,
-                "width": self.width,
-                "height": self.height,
-                "x": self.x,
-                "y": self.y
-            }
+    def to_dictionary(self):
+        """Return the dictionary representation of a Rectangle."""
+        return {
+            "id": self.id,
+            "width": self.width,
+            "height": self.height,
+            "x": self.x,
+            "y": self.y
+        }
 
-        def __str__(self):
-            """Return The print() and str() representation of the Rectangle."""
-            return "[Rectangle] ({}) {}/{} - {}/{}".format(self.id,
-                                                            self.x, self.y,
-                                                            self.width, self.height)
+    def __str__(self):
+        """Return The print() and str() representation of the Rectangle."""
+        return "[Rectangle] ({}) {}/{} - {}/{}".format(self.id,
+                                                       self.x, self.y,
+                                                       self.width, self.height)
             

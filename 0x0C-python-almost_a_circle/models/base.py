@@ -17,7 +17,7 @@ class Base:
 
     __nb_objects = 0
 
-    def __init_(self, id=None):
+    def __init__(self, id=None):
         """Initialize a new Base
 
         Args:
@@ -34,7 +34,7 @@ class Base:
         """Return the JSON serialization of a list of dicts.
 
         Args:
-            list_dictionaries (list): Alist of dictionaries.
+            list_dictionaries (list): A list of dictionaries.
         """
         if list_dictionaries is None or list_dictionaries == []:
             return "[]"
@@ -61,9 +61,9 @@ class Base:
 
         Args:
             json_string (str): A JSON str representation of a list dicts.
-            Returns:
-                If json is None or empty - an empty list.
-                Otherwise - the python list represented by json_string.
+        Returns:
+            If json is None or empty - an empty list.
+            Otherwise - the python list represented by json_string.
         """
         if json_string is None or json_string == "[]":
             return []
@@ -118,7 +118,7 @@ class Base:
                 if cls.__name__ == "Rectangle":
                     fieldnames = ["id", "width", "height", "x", "y"]
                 else:
-                    fieldneames = ["id", "size", "x", "y"]
+                    fieldnames = ["id", "size", "x", "y"]
                 writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
                 for obj in list_objs:
                     writer.writerow(obj.to_dictionary())
@@ -173,7 +173,7 @@ class Base:
             turt.hideturtle()
 
         turt.color("#b5e3d8")
-        for sq in list_listsquares:
+        for sq in list_squares:
             turt.showturtle()
             turt.up()
             turt.goto(sq.x, sq.y)
