@@ -34,7 +34,7 @@ class Rectangle(Base):
 
     @width.setter
     def width(self, value):
-        if type(value) !=int:
+        if type(value) != int:
             raise TypeError("width must be an integer")
         if value <= 0:
             raise ValueError("width must be > 0")
@@ -70,7 +70,7 @@ class Rectangle(Base):
     def y(self):
         """Set/get the coordinate of the Rectangle."""
         return self.__y
-    
+
     @y.setter
     def y(self, value):
         if type(value) != int:
@@ -155,4 +155,3 @@ class Rectangle(Base):
         return "[Rectangle] ({}) {}/{} - {}/{}".format(self.id,
                                                        self.x, self.y,
                                                        self.width, self.height)
-            
