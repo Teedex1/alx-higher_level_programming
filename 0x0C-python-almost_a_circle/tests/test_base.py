@@ -51,7 +51,7 @@ class TestBase_instatiation(unittest.TestCase):
         self.assertEqual(15, b.id)
 
     def test_nb_instances_private(self):
-        self.assertRaises(AttributeError):
+        with self.assertRaises(AttributeError):
             print(Base(12).__nb_instances)
 
     def test_float_id(self):

@@ -131,11 +131,11 @@ class TestRectangle_width(unittestCase):
 
     def test_dict_width(self):
         with self.assertRaisesRegex(TypeError, "width must be an integer"):
-        Rectangle({"a": 1, "b": 2}, 2)
+            Rectangle({"a": 1, "b": 2}, 2)
 
     def test_bool_width(self):
         with self.assertRaisesRegex(TypeError, "width must be an integer"):
-        Rectangle(True, 2)
+            Rectangle(True, 2)
 
     def test_list_width(self):
         with self.assertRaisesRegex(TypeError, "width must be an integer"):

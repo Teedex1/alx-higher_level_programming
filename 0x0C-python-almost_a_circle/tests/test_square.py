@@ -157,7 +157,7 @@ class TestSquare_y(unittest.TestCase):
             Square(1, 1, "invalid")
     def test_float_y(self):
         with self.assertRaisesRegexRegex(TypeError, "y must be an integer"):
-        Square(1, 3, 5.5)
+            Square(1, 3, 5.5)
 
     def test_complex_y(self):
         with self.assertRaisesRegex(TypeError, "y must be an integer"):
