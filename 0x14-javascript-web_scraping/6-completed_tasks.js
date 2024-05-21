@@ -3,13 +3,13 @@
 
 const request = require('request');
 
-request.get(process.argv[2], { json: true ], (error, response, body) => {
+request.get(process.argv[2], { json: true }, (error, response, body) => {
   if (error) {
     console.log(error);
     return;
   }
 
-  const taskCompleted = {};
+  const tasksCompleted = {};
   body.forEach((todo) => {
     if (todo.completed) {
       if (!tasksCompleted[todo.userId]) {
@@ -19,5 +19,5 @@ request.get(process.argv[2], { json: true ], (error, response, body) => {
       }
    }
  });
- console.log(taskCompleted);
+ console.log(tasksCompleted);
 });
